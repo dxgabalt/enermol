@@ -5,7 +5,6 @@ body {
     padding: 0;
 }
 
-/* Encabezado */
 header {
     background-color: #007acc;
     color: #fff;
@@ -15,6 +14,8 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos alrededor del logo y el menú */
 }
 
 nav {
@@ -29,6 +30,7 @@ nav {
 .logo img {
     height: 60px;
     border-radius: 40px;
+    margin-right: 20px; /* Agregado para crear espacio entre el logo y el menú */
 }
 
 .menu {
@@ -51,37 +53,119 @@ nav {
     color: #ffca47;
 }
 
-.cta-button {
-    background-color: #ffca47;
-    color: #007acc;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s;
+
+.logo img {
+    height: 60px;
+    border-radius: 40px;
 }
 
-.cta-button:hover {
-    background-color: #ffc700;
+.menu-icon {
+    display: none; /* Oculta el icono en pantallas grandes por defecto */
+    font-size: 24px;
+    cursor: pointer;
+    order: 1; /* Cambia el orden para que el icono aparezca después del logo en la versión responsive */
+}
+
+.menu-button {
+    display: none; /* Oculta el botón de menú en pantallas grandes por defecto */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none; /* Oculta el menú desplegable en pantallas grandes por defecto */
+    flex-direction: column;
+    position: absolute;
+    top: 80px; /* Ajusta la posición del menú desplegable */
+    right: 20px; /* Alinea el menú a la derecha del encabezado */
+    background-color: #007acc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Ajusta el índice z para que aparezca sobre otros elementos */
+}
+
+.mobile-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea los elementos a la derecha en la versión responsive */
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-menu li {
+    margin: 5px 0;
+}
+
+.menu-button.active + .mobile-menu {
+    display: flex;
+}
+
+/* ... (otros estilos) */
+
+@media only screen and (max-width: 768px) {
+    /* Mostrar el icono del menú en pantallas pequeñas */
+    .menu-icon {
+        display: block;
+    }
+
+    /* Ocultar el menú en pantallas pequeñas */
+    .menu {
+        display: none;
+    }
+
+    /* Mostrar el menú desplegable en versión responsive */
+    .mobile-menu {
+        display: none;
+    }
+
+    /* Mostrar el botón de menú en pantallas pequeñas */
+    .menu-button {
+        display: block;
+    }
+
+    /* Mostrar el botón de menú activo en versión responsive */
+    .menu-button.active + .mobile-menu {
+        display: flex;
+    }
 }
 
 /* Banner Principal */
 .banner {
     text-align: center;
     padding: 100px 0;
+    background: linear-gradient(rgba(0, 122, 204, 0.8), rgba(0, 122, 204, 0.8)), url('tu-imagen.jpg') center/cover no-repeat; /* Fondo con degradado y tu imagen */
+    color: #fff; /* Texto en color blanco para contrastar con el fondo */
 }
 
 .banner h1 {
-    font-size: 36px;
+    font-size: 48px; /* Tamaño de fuente aumentado para destacar */
     margin-bottom: 20px;
+    font-weight: bold; /* Texto en negrita */
+    letter-spacing: 2px; /* Espaciado entre letras */
 }
 
 .slogan {
-    font-size: 18px;
+    font-size: 24px; /* Tamaño de fuente aumentado */
     color: #ffca47;
     margin-bottom: 30px;
+    font-style: italic; /* Estilo de fuente itálica */
 }
+
 
 /* Sección de Servicios, Proyectos, Sobre Nosotros y Contacto - Personaliza según tus necesidades */
 
@@ -114,43 +198,75 @@ footer {
     color: #ffca47;
 }
 
-/* Estilos para la Sección de Servicios */
+/* Estilos mejorados para la Sección de Servicios */
 .services {
-    background-color: #f4f4f4;
-    padding: 50px 0;
+    background-color: #f9f9f9; /* Fondo más claro */
+    padding: 80px 0; /* Más espacio en la parte superior e inferior */
 }
 
 .services .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around; /* Centrar los elementos */
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .services h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 36px; /* Tamaño de fuente más grande */
+    margin-bottom: 40px; /* Mayor espacio inferior */
+    color: #333; /* Color de texto más oscuro */
+    text-align: center; /* Centrar el texto */
 }
 
 .service {
-    flex: 0 0 calc(33.33% - 20px);
-    margin-right: 20px;
-    padding: 20px;
+    flex: 0 0 calc(30% - 20px); /* Reducción del espacio entre los servicios */
+    margin-bottom: 40px; /* Mayor espacio inferior entre servicios */
+    padding: 30px;
     background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Bordes más redondeados */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    transition: transform 0.3s ease-in-out; /* Transición suave al pasar el ratón */
+}
+
+.service:hover {
+    transform: scale(1.05); /* Escala ligeramente al pasar el ratón */
 }
 
 .service img {
     max-width: 100%;
     height: auto;
+    border-radius: 8px; /* Bordes más redondeados para las imágenes */
 }
 
 .service h3 {
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 24px; /* Tamaño de fuente más grande */
+    margin-top: 20px; /* Mayor espacio superior */
+    color: #007acc; /* Color de texto más llamativo */
+    text-align: center; /* Centrar el texto */
+}
+
+.service p {
+    font-size: 16px; /* Tamaño de fuente para el texto */
+    color: #555; /* Color de texto más oscuro */
+    line-height: 1.6; /* Altura de línea para una mejor legibilidad */
+}
+
+.cta-button {
+    background-color: #ffca47;
+    color: #007acc;
+    font-weight: bold;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block; /* Cambiado a en línea para evitar márgenes adicionales */
+    margin-left: 20px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #ffc700;
 }
 
 /* Estilos para la Sección de Proyectos */
@@ -209,6 +325,42 @@ footer {
     margin-bottom: 20px;
 }
 
+/* Agrega estilos para la nueva sección de testimonios */
+.testimonials {
+    background-color: #f4f4f4;
+    padding: 50px 0;
+}
+
+.testimonials h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.testimonial {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.testimonial img {
+    border-radius: 50%;
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.testimonial p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.testimonial cite {
+    font-style: normal;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Otros ajustes de estilo según necesidades */
+
 /* Estilos para la Sección de Contacto */
 .contact {
     background-color: #007acc;
@@ -260,4 +412,255 @@ footer {
 
 .contact-form button:hover {
     background-color: #ffc700;
+}
+
+/* Estilos para la Sección de Ventajas */
+.advantages {
+    background-color: #fff;
+    padding: 80px 0; /* Aumenté el padding para mayor separación */
+}
+
+.advantages .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.advantages h2 {
+    font-size: 36px; /* Tamaño de fuente aumentado */
+    margin-bottom: 30px; /* Mayor espacio después del título */
+    text-align: center; /* Centrar el texto */
+    color: #007acc; /* Color azul para destacar */
+}
+
+.advantage {
+    flex: 0 0 calc(30% - 20px); /* Ajusté el ancho de cada ventaja */
+    margin-bottom: 30px; /* Mayor espacio entre las ventajas */
+    padding: 30px; /* Aumenté el padding para mayor espacio interno */
+    background-color: #f5f5f5; /* Fondo más claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    transition: transform 0.3s ease-in-out; /* Agregué una transición al hacer hover */
+}
+
+.advantage:hover {
+    transform: scale(1.05); /* Efecto de escala al hacer hover */
+}
+
+.advantage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+.advantage h3 {
+    font-size: 24px; /* Tamaño de fuente aumentado */
+    margin-top: 20px; /* Mayor espacio arriba del título */
+    color: #007acc; /* Color azul para destacar */
+}
+
+.advantage p {
+    font-size: 18px; /* Tamaño de fuente aumentado */
+    line-height: 1.6; /* Mayor espacio entre líneas */
+    color: #555; /* Color de texto más oscuro */
+}
+
+/* Agregué estilos para las nuevas ventajas */
+.advantage:nth-child(4),
+.advantage:nth-child(5) {
+    background-color: #fff; /* Fondo blanco para destacar */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+}
+
+.advantage:nth-child(4) img {
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+.advantage:nth-child(5) img {
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+/* Estilos específicos para las nuevas ventajas */
+.advantage:nth-child(4) h3,
+.advantage:nth-child(5) h3 {
+    color: #ffca47; /* Color amarillo para destacar */
+}
+/* Estilos para la Sección de Contador de Ahorro */
+.savings-counter {
+    background-color: #007acc;
+    color: #fff;
+    padding: 80px 0; /* Aumenté el padding para mayor presencia */
+}
+
+.savings-counter .container {
+    text-align: center; /* Centrar el contenido */
+}
+
+.savings-counter h2 {
+    font-size: 36px; /* Tamaño de fuente aumentado */
+    margin-bottom: 30px; /* Mayor espacio después del título */
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#savings-count {
+    font-size: 48px; /* Tamaño de fuente aumentado */
+    font-weight: bold; /* Texto en negrita para mayor impacto */
+    margin-right: 10px; /* Espacio entre el número y el texto */
+}
+
+.counter p {
+    font-size: 20px; /* Tamaño de fuente aumentado */
+    margin-left: 10px; /* Espacio entre el número y el texto */
+}
+
+/* Efecto de animación para el contador */
+@keyframes count-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#savings-count,
+.counter p {
+    animation: count-up 1s ease-out; /* Agregué una animación al contador */
+}
+/* Estilos para la Sección de Casos de Estudio */
+.case-studies {
+    background-color: #f4f4f4; /* Color de fondo ajustado */
+    padding: 80px 0; /* Aumenté el padding para mayor presencia */
+}
+
+.case-studies .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.case-studies h2 {
+    font-size: 36px; /* Tamaño de fuente aumentado */
+    margin-bottom: 30px; /* Mayor espacio después del título */
+    text-align: center; /* Centrar el texto */
+}
+
+.case-study {
+    flex: 0 0 calc(100% - 20px); /* Ocupa el ancho completo en pantallas pequeñas */
+    margin-bottom: 40px; /* Mayor espacio entre los casos de estudio */
+    background-color: #fff;
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Evitar bordes sobresalientes de las imágenes */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out; /* Efecto de transición al hacer hover */
+}
+
+.case-study:hover {
+    transform: scale(1.05); /* Efecto de escala al hacer hover */
+}
+
+.case-study img {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 2px solid #007acc; /* Línea divisoria debajo de la imagen */
+}
+
+.case-study h3 {
+    font-size: 24px; /* Tamaño de fuente aumentado */
+    margin: 20px 0; /* Mayor espacio entre el título y el párrafo */
+    text-align: center; /* Centrar el texto */
+}
+
+.case-study p {
+    font-size: 16px; /* Tamaño de fuente ajustado */
+    text-align: center; /* Centrar el texto */
+}
+
+
+/* Estilos para la Sección del Blog */
+.blog-section {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+}
+
+.blog-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.blog-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la Sección de Preguntas Frecuentes */
+.faq-section {
+    background-color: #fff;
+    padding: 50px 0;
+}
+
+.faq-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.faq-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.faq {
+    margin-bottom: 20px;
+}
+
+.faq h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.faq p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Estilos para el Botón de WhatsApp Flotante */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-button a {
+    display: inline-block;
+    background-color: #25d366;
+    border-radius: 60%;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.whatsapp-button img {
+    width: 50px; /* Ajusta el tamaño del icono según tus preferencias */
+    height: auto;
+}
+
+.whatsapp-button a:hover {
+    background-color: #128c7e;
 }

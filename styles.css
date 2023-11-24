@@ -269,10 +269,11 @@ footer {
     background-color: #ffc700;
 }
 
-/* Estilos para la Sección de Proyectos */
+/* Estilos para la Sección de Proyectos Destacados */
 .projects {
-    background-color: #fff;
-    padding: 50px 0;
+    background-color: #007acc;
+    color: #007acc;
+    padding: 80px 0;
 }
 
 .projects .container {
@@ -285,33 +286,44 @@ footer {
 }
 
 .projects h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #f4f4f4;
 }
 
 .project {
     flex: 0 0 calc(33.33% - 20px);
-    margin-right: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 5px;
+    margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.project img {
-    max-width: 100%;
-    height: auto;
+.project:hover {
+    transform: scale(1.05);
 }
 
 .project h3 {
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 24px;
+    margin: 20px 0;
+    text-align: center;
 }
+
+.project p {
+    font-size: 16px;
+    text-align: center;
+    padding: 0 20px;
+}
+
 
 /* Estilos para la Sección "Sobre Nosotros" */
 .about {
     background-color: #f4f4f4;
-    padding: 50px 0;
+    color: #333;
+    padding: 80px 0;
 }
 
 .about .container {
@@ -321,43 +333,59 @@ footer {
 }
 
 .about h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
-/* Agrega estilos para la nueva sección de testimonios */
+.about p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.about h3 {
+    font-size: 24px;
+    margin: 30px 0 20px;
+}
+
+/* Estilos para la Sección de Testimonios */
 .testimonials {
-    background-color: #f4f4f4;
-    padding: 50px 0;
+    background-color: #007acc;
+    color: #fff;
+    padding: 80px 0;
+}
+
+.testimonials .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .testimonials h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
 .testimonial {
     text-align: center;
-    margin-top: 30px;
-}
-
-.testimonial img {
-    border-radius: 50%;
-    max-width: 100px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .testimonial p {
     font-size: 18px;
-    margin-bottom: 10px;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .testimonial cite {
-    font-style: normal;
     font-size: 16px;
-    color: #333;
+    font-style: normal;
+    color: #ffca47;
+    display: block;
 }
+
 
 /* Otros ajustes de estilo según necesidades */
 

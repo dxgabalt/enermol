@@ -40,3 +40,11 @@ window.addEventListener('resize', function() {
         menuIcon.classList.remove('active');
     }
 });
+
+function loadBlog(blogUrl) {
+    // Agrega un efecto creativo de carga de página aquí
+    // Puedes usar animaciones, transiciones, etc.
+
+    // Redirige a la entrada del blog seleccionada después de la carga creativa
+    window.location.href = blogUrl;
+}

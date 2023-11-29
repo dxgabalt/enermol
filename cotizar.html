@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tu Página</title>
+</head>
+<body>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2>Contacto</h2>
+            <!-- Formulario de Cotización -->
+            <form id="quotationForm" onsubmit="showDetails(); return false;">
+                <label for="product">Producto a cotizar:</label>
+                <select id="product" required>
+                    <option value="Combo 145W">Combo 145W</option>
+                    <option value="Combo 165W">Combo 165W</option>
+                    <option value="Combo 400W">Combo 400W</option>
+                </select>
+
+                <label for="whatsapp">Tu número de WhatsApp:</label>
+                <input type="text" id="whatsapp" required>
+
+                <button type="submit" class="cta-button">Cotizar</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="popup" class="popup">
+        <div id="details" class="details"></div>
+        <button onclick="closePopup()">Cerrar</button>
+    </div>
+
+    <script>
+        function showDetails() {
+            var productSelect = document.getElementById("product");
+            var whatsappInput = document.getElementById("whatsapp");
+
+            var details = "";
+
+            switch (productSelect.value) {
+                case "Combo 145W":
+                    details = "Combo 145W\nPaneles Flexibles de 145W, Controlador de Carga de 20 AH, Batería de 105 AH marca Leoch, Inversor de onda pura de 500W, Bombillos LED. Flexibilidad y eficiencia energética al alcance de tu mano.";
+                    break;
+                case "Combo 165W":
+                    details = "Combo 165W\nPaneles de 165W, Controlador de Carga de 20 AH, Batería de 105 AH marca Leoch, Inversor de onda pura de 1000W, Bombillos LED. ¡Obtén este combo para un sistema eficiente y sostenible!";
+                    break;
+                case "Combo 400W":
+                    details = "Combo 400W\nPaneles de Trina de 400W, Controlador de Carga de 20 AH, Batería de 105 AH marca Leoch, Inversor de onda pura de 1500W, Bombillos LED. Potencia y rendimiento para tus necesidades energéticas.";
+                    break;
+                default:
+                    details = "Selecciona un producto para ver los detalles.";
+                    break;
+            }
+
+            details += "\n\nNúmero de WhatsApp Enermol: 7523 4082";
+
+            document.getElementById("details").innerText = details;
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
